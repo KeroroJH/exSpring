@@ -1,6 +1,9 @@
 package org.kro.web;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.kro.domain.ProductVO;
 import org.slf4j.Logger;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class SampleController {
@@ -61,6 +65,21 @@ public class SampleController {
 		mv.addObject(vo);
 		return mv;
 	}
+	
+	@RequestMapping("/doG") // spring에서 제공하는 리다이렉트 시 추가로 데이터 전송 가능
+	public String doG(RedirectAttributes rda){
+		logger.info("doG is called .. ");
+		rda.addFlashAttribute("msg"," redirect on doG");
+		return "redirect:/doD";
+	}
+	
+	
+	@RequestMapping("/doH") // jsp에서 부터 사용된 방법 리다이렉트
+	public void doG(HttpServletResponse res) throws IOException{
+		logger.info("doH is called .. ");
+		res.sendRedirect("/doD?msg=redirect on doH jsp");
+	}
+	
 	
 
 }
