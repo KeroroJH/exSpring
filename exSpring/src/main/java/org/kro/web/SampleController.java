@@ -48,15 +48,17 @@ public class SampleController {
 		return "/return";
 	}
 	
-	@RequestMapping("/doE") // VO객체와 request파라미터항목들이 일치할시 해당 VO로 바로 받아서 Model에 넣을수 있다
+	@RequestMapping("/doE") // VO객체와 request파라미터항목들이 일치할시 해당 VO로 바로 받아서 Model에 넣을수 있다 /doE?name=keroro&price=4344
 	public void doE(ProductVO productVO){
 		logger.info("doE is Called ..");
 	}
 	
-	@RequestMapping("/doF") // ModelAndView 로 받을 view설정을 따로 
+	@RequestMapping("/doF") // ModelAndView 로 view설정 및 Model 설정을 후에 할수있다 
 	public ModelAndView doF(ModelAndView mv){
-		logger.info("doE is Called ..");
-		mv.setViewName("/doZ");
+		logger.info("doF is Called ..");
+		mv.setViewName("/doE");
+		ProductVO vo = new ProductVO("keroro", (double) 3453);
+		mv.addObject(vo);
 		return mv;
 	}
 	
