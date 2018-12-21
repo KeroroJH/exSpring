@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -80,6 +81,11 @@ public class SampleController {
 		res.sendRedirect("/doD?msg=redirect on doH jsp");
 	}
 	
-	
+	@RequestMapping("/doJSON") // JSON 타입으로 리턴을 할때 @ResponseBody 사용 [ jackson-databind 라이브러리 의존 ]
+	public @ResponseBody ProductVO doJSON(){
+		ProductVO vo = new ProductVO("jsonn", (double) 234234);
+		return vo;
+		
+	}
 
 }
