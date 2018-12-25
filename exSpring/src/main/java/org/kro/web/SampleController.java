@@ -42,7 +42,7 @@ public class SampleController {
 	
 	@RequestMapping("/doC") // 파라미터 msg값을 msg변수에 넣고 , Model에 수동으로 넣기 (단 파라미터가 널이면 오류)
 	public String doC(@RequestParam("msg") String msg, Model model){
-		logger.info("doC is Called ..");
+		logger.info("doC is Called .." + msg);
 		model.addAttribute("msg", msg);
 		return "/return";
 	}
