@@ -21,7 +21,36 @@
 			,#{email})
 	</insert>
 	
+	<select id="readMember" resultType="org.kro.domain.MemberVO">
+		SELECT 	  
+			 USERID
+			,USERNAME
+			,EMAIL
+		    ,REGDATE
+			,UPDATEDATE
+	 	FROM member
+		WHERE USERID = #{userid}
+	</select>
+	
+	<select id="readWithPw" parameterType="hashmap" resultType="org.kro.domain.MemberVO">
+		SELECT 	  
+			 USERID
+			,USERNAME
+			,EMAIL
+		    ,REGDATE
+			,UPDATEDATE
+	 	FROM member
+		WHERE USERID = #{userid}
+		  AND USERPW = #{userpw} 
+	</select>
+	
 </mapper>
+
+
+
+
+
+
 
 
 <!-- create TABLE member (

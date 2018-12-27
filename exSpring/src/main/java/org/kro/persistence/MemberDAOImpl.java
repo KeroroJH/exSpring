@@ -1,5 +1,8 @@
 package org.kro.persistence;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.kro.domain.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,20 @@ public class MemberDAOImpl implements MemberDAO{
 	public void insertMember(MemberVO vo) {
 		sqlsession.insert("member.insertMember", vo);
 		
+	}
+
+	@Override
+	public MemberVO readMember(String userid) throws Exception {
+		return sqlsession.selectOne("member.readMember", userid);
+		
+	}
+
+	@Override
+	public MemberVO readWithPw(String userid, String userpw) throws Exception {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("userid", userid);
+		paramMap.put("userpw", userpw);
+		return sqlsession.selectOne("member.readWithPw", paramMap);
 	}
 
 }

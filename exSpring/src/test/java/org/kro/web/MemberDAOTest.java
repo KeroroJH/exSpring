@@ -1,6 +1,8 @@
 package org.kro.web;
 
 import static org.junit.Assert.*;
+
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kro.domain.MemberVO;
@@ -21,10 +23,22 @@ public class MemberDAOTest {
 		System.out.println(dao.getTime());
 	}
 	
-	@Test
+	@Test @Ignore
 	public void testInsertMember() throws Exception {
 		MemberVO vo = new MemberVO("idid", "pwpw", "namename", "email@email.com");
 		dao.insertMember(vo);
+	}
+	
+	@Test
+	public void testReadMember() throws Exception {
+		MemberVO vo = dao.readMember("idid");
+		System.out.println(vo.toString());
+	}
+	
+	@Test
+	public void testReadMemberWithPw() throws Exception {
+		MemberVO vo = dao.readWithPw("idid", "pwpw");
+		System.out.println(vo.toString());
 	}
 
 }

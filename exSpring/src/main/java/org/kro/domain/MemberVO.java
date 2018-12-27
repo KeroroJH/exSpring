@@ -11,6 +11,8 @@ public class MemberVO {
 	private Date regdate;
 	private Date updatedate;
 	
+	public MemberVO(){};
+	
 	public MemberVO(String userid, String userpw, String username, String email) {
 		super();
 		this.userid = userid;
