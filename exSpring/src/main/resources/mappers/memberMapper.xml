@@ -21,7 +21,7 @@
 			,#{email})
 	</insert>
 	
-	<select id="readMember" resultType="org.kro.domain.MemberVO">
+	<select id="readMember" resultType="org.kro.cmmn.MemberVO">
 		SELECT 	  
 			 USERID
 			,USERNAME
@@ -32,7 +32,7 @@
 		WHERE USERID = #{userid}
 	</select>
 	
-	<select id="readWithPw" parameterType="hashmap" resultType="org.kro.domain.MemberVO">
+	<select id="readWithPw" parameterType="hashmap" resultType="org.kro.cmmn.MemberVO">
 		SELECT 	  
 			 USERID
 			,USERNAME

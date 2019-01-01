@@ -1,6 +1,6 @@
-package org.kro.persistence;
+package org.kro.dao;
 
-import org.kro.domain.MemberVO;
+import org.kro.cmmn.MemberVO;
 
 public interface MemberDAO {
 	

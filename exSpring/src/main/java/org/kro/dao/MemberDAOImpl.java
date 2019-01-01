@@ -1,10 +1,10 @@
-package org.kro.persistence;
+package org.kro.dao;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
-import org.kro.domain.MemberVO;
+import org.kro.cmmn.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

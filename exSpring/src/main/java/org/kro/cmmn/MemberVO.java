@@ -1,4 +1,4 @@
-package org.kro.domain;
+package org.kro.cmmn;
 
 import java.util.Date;
 
