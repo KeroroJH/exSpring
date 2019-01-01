@@ -8,9 +8,9 @@ import org.junit.Test;
 public class MariaDBConnectionTest {
 	
 	final static String DRIVER = "org.mariadb.jdbc.Driver";
-	final static String URL    = "jdbc:mariadb://192.168.25.191:3307/jener";
-	final static String USER   = "jener";
-	final static String PW     = "wpsj10!";
+	final static String URL    = "jdbc:mariadb://192.168.25.191:3307/dbname";
+	final static String USER   = "id";
+	final static String PW     = "pw";
 	
 	@Test
 	public void testConnection() throws Exception{
